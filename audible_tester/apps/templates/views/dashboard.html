@@ -1,0 +1,38 @@
+<h1>dashboard</h1>
+
+{# Check to see if the user is logged in #}
+{% if user.is_authenticated %}
+
+    <h1>Hello, {{ user.username }}!</h1>
+
+    <h2>Your Library</h2>
+    <!-- Loop through all books in the library, and show the Title by Author -->
+    {% for book in user.library %}
+    <p>{{book.title}} by {{ book.author }}</p>
+    {% endfor %}
+
+{% else %}
+{# When the user is not logged in #}
+
+<h1>Please Login or Register</h1>
+<form action="????" method="POST">
+    <div>
+        <input type="text" name="username" placeholder="Enter your username"/>
+    </div>
+    <div>
+        <input type="password" name="password" placeholder="Enter your password"/>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+<a href="/register">Not Registered? Click Here</a>
+
+{% endif %}
+
+
+<!-- Show the books in their library -->
+
+<!-- else --->
+<!--- Show them a login form, with username, and password boxes -->
